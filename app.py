@@ -195,7 +195,7 @@ with tab_eq:
         if "lat" in eq_df.columns and "lon" in eq_df.columns:
             map_data = eq_df.dropna(subset=["lat","lon"])
             if not map_data.empty:
-                fig = px.scatter_mapbox(
+                fig = px.scatter_map(
                     map_data, lat="lat", lon="lon",
                     size="magnitude", color="magnitude",
                     hover_name="place", hover_data={"magnitude":True,"depth_km":True},
