@@ -196,13 +196,11 @@ with tab_eq:
             map_data = eq_df.dropna(subset=["lat","lon"])
             if not map_data.empty:
                 fig = px.scatter_map(
-                    map_data, lat="lat", lon="lon",
-                    size="magnitude", color="magnitude",
-                    hover_name="place", hover_data={"magnitude":True,"depth_km":True},
-                    color_continuous_scale="Plasma",
-                    mapbox_style="carto-darkmatter",
-                    title="Earthquake Map",
-                    size_max=20, zoom=5,
-                )
-                fig.update_layout(**PLOTLY_LAYOUT, height=420)
-                st.plotly_chart(fig, use_container_width=True)
+                    map_data, lat="lat", lon="lon", 
+                    size="magnitude", color="magnitude", 
+                    hover_name="place", hover_data={ "magnitude": True, "depth_km": True }, 
+                    color_continuous_scale="Plasma", 
+                    map_style="carto-darkmatter", 
+                    title="Earthquake Map", size_max=20, zoom=5) 
+                fig.update_layout( **PLOTLY_LAYOUT, height=420 ) 
+                st.plotly_chart( fig, use_container_width=True ) 
